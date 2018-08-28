@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Zadatak8 {
+public class Zadatak9 {
 
 	public static void main(String[] args) throws IOException {
 
@@ -18,12 +18,28 @@ public class Zadatak8 {
 		
 		//Ucitavanje iz tekstualnog fajla i ispis teksta bez razmaka (space-a)
 		String linija, novaLinija;
+		char c;
+		int a;
 		while((linija = br.readLine()) != null) {
-			novaLinija = "";
-			for (int i = 0; i < linija.length(); i++) {
-				if(linija.charAt(i) != ' ')
-					novaLinija += linija.charAt(i);
+			novaLinija = "";	
+			if(linija.charAt(0) > 96) {
+				a = linija.charAt(0);
+				c =  (char) (a - 32);
+				novaLinija += c;
 			}
+			else
+				novaLinija += linija.charAt(0);
+			for (int i = 1; i < linija.length(); i++) {
+				novaLinija += linija.charAt(i);
+				if(linija.charAt(i) == ' ') {
+					i++;
+					a = linija.charAt(i);
+					c =  (char) (a - 32);
+					novaLinija += c;
+				}
+					
+			}
+				
 			System.out.println(novaLinija);
 		}
 		
